@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}biLSTM Machine Translation{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-
+    <div class="container">
+        <header>
+            <h1>Machine Translation with biLSTM Encoder-Decoder</h1>
+            <p class="subtitle">Dịch câu tiếng Anh (paraphrase) bằng mô hình Seq2Seq + Attention</p>
+        </header>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            <p>Đồ án Trí tuệ nhân tạo | Mô hình biLSTM - LSTM - Attention</p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

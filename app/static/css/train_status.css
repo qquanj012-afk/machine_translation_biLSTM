@@ -1,0 +1,79 @@
+/* train_status.css - style cho trang theo dõi huấn luyện */
+.train-status-container {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.info-box {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #3498db;
+}
+
+.info-box p {
+    margin: 8px 0;
+}
+
+.progress-area {
+    margin: 20px 0;
+}
+
+progress {
+    width: 100%;
+    height: 25px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #ecf0f1;
+}
+progress::-webkit-progress-value {
+    background-color: #3498db;
+}
+
+.log-area {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px;
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: monospace;
+    margin: 20px 0;
+}
+
+.log-area h3 {
+    color: #ecf0f1;
+    margin-top: 0;
+}
+
+#log-content {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+}
+
+.btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn-danger {
+    background: #e74c3c;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}

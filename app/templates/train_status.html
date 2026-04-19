@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Trạng thái huấn luyện{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/train_status.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="train-status-container">
+    <h2>Huấn luyện mô hình</h2>
+    <div class="info-box">
+        <p><strong>Trạng thái:</strong> <span id="status">Đang chờ</span></p>
+        <p><strong>Epoch hiện tại:</strong> <span id="current-epoch">0</span> / <span id="total-epochs">0</span></p>
+        <p><strong>Train loss:</strong> <span id="train-loss">--</span></p>
+        <p><strong>Validation loss:</strong> <span id="val-loss">--</span></p>
+        <p><strong>Thời gian epoch gần nhất:</strong> <span id="epoch-time">--</span> giây</p>
+    </div>
+    <div class="progress-area">
+        <label for="epoch-progress">Tiến độ epochs:</label>
+        <progress id="epoch-progress" value="0" max="100"></progress>
+    </div>
+    <div class="log-area">
+        <h3>Log chi tiết</h3>
+        <pre id="log-content">Chưa có log.</pre>
+    </div>
+    <div class="action-buttons">
+        <button id="refresh-btn" class="btn">Làm mới</button>
+        <button id="stop-train-btn" class="btn btn-danger" style="display:none;">Dừng huấn luyện (nếu đang chạy)</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/train_status.js') }}"></script>
+{% endblock %}

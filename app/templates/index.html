@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Trang chủ - Dịch máy{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="translate-box">
+    <form id="translate-form">
+        <div class="form-group">
+            <label for="source_text">Câu tiếng Anh cần dịch:</label>
+            <textarea id="source_text" class="input-text" rows="3" placeholder="Nhập câu tiếng Anh..."></textarea>
+        </div>
+        <div class="form-group">
+            <label for="decoding_method">Phương pháp giải mã:</label>
+            <select id="decoding_method" class="select">
+                <option value="greedy">Greedy (nhanh)</option>
+                <option value="beam">Beam Search (chính xác hơn, chậm hơn)</option>
+            </select>
+        </div>
+        <button type="submit" id="translate-btn">Dịch</button>
+    </form>
+    <div id="result-area" class="result-area" style="display: none;">
+        <h3>Kết quả:</h3>
+        <div id="translation-text" class="translation-text"></div>
+        <div id="attention-viz" class="attention-viz"></div>
+    </div>
+    <div id="loading" class="loading" style="display: none;">Đang xử lý...</div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Kết quả dịch{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="result-box">
+    <h2>Kết quả dịch</h2>
+    <div class="source-area">
+        <strong>Câu gốc:</strong>
+        <p>{{ source }}</p>
+    </div>
+    <div class="target-area">
+        <strong>Câu dịch:</strong>
+        <p>{{ translation }}</p>
+    </div>
+    <a href="{{ url_for('main.index') }}" class="back-link">← Dịch tiếp</a>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/result.js') }}"></script>
+{% endblock %}
