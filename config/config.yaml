@@ -1,0 +1,40 @@
+# config/config.yaml
+# Tất cả tham số cho toàn bộ dự án
+
+data:
+  raw_train_path: "data/raw/paraphrase_train.txt"
+  raw_test_path: "data/raw/paraphrase_test.txt"
+  processed_dir: "data/processed"
+  max_seq_len: 50
+  min_freq: 1               # từ xuất hiện dưới min_freq sẽ bị thay bằng <UNK>
+  train_ratio: 0.9
+  seed: 42
+
+tokenizer:
+  special_tokens:
+    - "<PAD>"
+    - "<UNK>"
+    - "<SOS>"
+    - "<EOS>"
+
+model:
+  encoder_hidden_size: 256
+  decoder_hidden_size: 256
+  num_layers: 2
+  dropout: 0.3
+  bidirectional: true
+  attention_type: "general"   # 'dot', 'general', 'concat'
+
+training:
+  batch_size: 64
+  epochs: 50
+  learning_rate: 0.001
+  clip: 1.0
+  patience: 5                 # early stopping
+  device: "cuda"              # hoặc "cpu"
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
+
+inference:
+  beam_size: 1                # 1: greedy, >1: beam search
+  max_len: 50
